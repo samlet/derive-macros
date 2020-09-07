@@ -18,13 +18,13 @@ struct DetailErrorEnum {
 #[darling(attributes(detail), supports(struct_any))]
 struct DetailErrorStruct {
     ident: syn::Ident,
-    // LoremField用于提取所有的字段
-    data: darling::ast::Data<DetailErrorVariant_, LoremField>,
+    // DeField用于提取所有的字段
+    data: darling::ast::Data<DetailErrorVariant_, DeField>,
 }
 
 #[derive(Debug, FromField)]
 #[darling(attributes(lorem))]
-pub struct LoremField {
+struct DeField {
     // 提取字段名
     ident: Option<Ident>,
     // 提取字段类型
